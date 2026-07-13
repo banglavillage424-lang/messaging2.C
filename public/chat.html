@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temporary Messenger</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="chat-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div>
+                    <h2>Online Users</h2>
+                    <small id="userCount">Waiting for users...</small>
+                </div>
+                <button id="logoutBtn" class="logout-btn" type="button">Logout</button>
+            </div>
+            <ul id="userList" class="user-list">
+                <li class="empty">No users online yet</li>
+            </ul>
+        </aside>
+
+        <!-- Chat Area -->
+        <main class="chat-area">
+            <header class="chat-header">
+                <div>
+                    <h2 id="chatWith">Select a user to start chatting</h2>
+                    <p class="chat-meta">You are logged in as <strong id="currentUser"></strong></p>
+                </div>
+            </header>
+
+            <!-- Messages -->
+            <section id="messages" class="messages">
+                <div class="chat-empty">
+                    <strong>Welcome to Temporary Messenger</strong>
+                    <p>Pick someone from the list to start a conversation, or wait for another user to join.</p>
+                </div>
+                <div id="typingIndicator" class="typing-indicator" style="display:none;">
+                    <span></span><span></span><span></span>
+                </div>
+            </section>
+
+            <!-- Message Input -->
+            <div class="message-input">
+                <input type="text" id="messageInput" placeholder="Type your message..." autocomplete="off" disabled>
+                <button id="sendBtn" disabled>Send</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/chat.js"></script>
+</body>
+</html>
